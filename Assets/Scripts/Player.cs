@@ -8,6 +8,8 @@ public class Player : LivingEntity {
 
   public float moveSpeed = 5;
 
+  public CrossHairs crossHairs;
+
   Camera viewCamera;
   PlayerControl controller;
   GunController gunController;
@@ -27,13 +29,15 @@ public class Player : LivingEntity {
 
     //Look Input
     Ray ray = viewCamera.ScreenPointToRay (Input.mousePosition);
-    Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+    Plane groundPlane = new Plane(Vector3.up, Vector3.up * gunController.GunHeight);
     float rayDistance;
 
     if(groundPlane.Raycast(ray, out rayDistance)){
       Vector3 pointOfIntersection = ray.GetPoint(rayDistance);
       //Debug.DrawLine(ray.origin, pointOfIntersection, Color.red);
       controller.LookAt(pointOfIntersection);
+      crossHairs.transform.position = pointOfIntersection;
+      crossHairs.DetectTarget(ray);
     }
 
     //Weapon Input
