@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFollower : MonoBehaviour {
+public class playerFollower : MonoBehaviour {
 
   public Transform player;
-  
+
 
   public float smoothSpeed = 10f;
   public Vector3 offset;
