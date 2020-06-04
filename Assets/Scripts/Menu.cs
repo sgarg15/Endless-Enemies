@@ -60,7 +60,7 @@ public class Menu : MonoBehaviour {
 
   public void SetFullScreen(bool isFullscreen){
     for (int i = 0; i < resolutionToggles.Length; i ++) {
-      resolutionToggles [i].interactable = false;
+      resolutionToggles [i].interactable = !isFullscreen;
     }
 
     if(isFullscreen){
