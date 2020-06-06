@@ -13,6 +13,7 @@ public class Player : LivingEntity {
   Camera viewCamera;
   PlayerControl controller;
   GunController gunController;
+  AudioManager audioManager;
 
   protected override void Start() {
     base.Start ();
