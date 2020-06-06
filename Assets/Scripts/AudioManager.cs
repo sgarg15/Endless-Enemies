@@ -45,6 +45,7 @@ public class AudioManager : MonoBehaviour {
       audioListener = FindObjectOfType<AudioListener> ().transform;
       if(FindObjectOfType<Player> () != null){
         playerT = FindObjectOfType<Player> ().transform;
+        audioListener.position = playerT.position;
       }
 
       masterVolumePercent = PlayerPrefs.GetFloat("master vol", 1);
@@ -55,7 +56,9 @@ public class AudioManager : MonoBehaviour {
 
   void Update(){
     if(playerT != null){
-      audioListener.position = playerT.position;
+      if(audioListener.position != playerT.position){
+        audioListener.position = playerT.position;
+      }
     }
   }
 

@@ -54,7 +54,7 @@ public class Enemy : LivingEntity {
     }
   }
 
-  public void SetCharacteristics(float moveSpeed, int hitsToKillPlayer, float enemyHealth, Color skinColour){
+  public void SetCharacteristics(float moveSpeed, int hitsToKillPlayer, float enemyHealth, Color skinColour, Color deathEffectColour){
     pathFinder.speed = moveSpeed;
 
     if(hasTarget){
@@ -62,6 +62,8 @@ public class Enemy : LivingEntity {
     }
     startingHealth = enemyHealth;
 
+    var main = deathEffect.main;
+    main.startColor = new Color(deathEffectColour.r, deathEffectColour.g, deathEffectColour.b, 1);
     skinMaterial = GetComponent<Renderer> ().material;
     skinMaterial.color = skinColour;
     originalColor = skinMaterial.color;

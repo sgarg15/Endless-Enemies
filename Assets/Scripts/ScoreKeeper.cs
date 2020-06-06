@@ -11,6 +11,7 @@ public class ScoreKeeper : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
+    score = 0;
     Enemy.OnDeathStatic += OnEnemyKilled;
     FindObjectOfType<Player> ().OnDeath += OnPlayerDeath;
   }

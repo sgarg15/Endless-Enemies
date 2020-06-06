@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour {
   int currentWaveNumber;
 
   int enemiesRemainingToSpawn;
-  int enemiesRemainingAlive;
+  public int enemiesRemainingAlive {get; private set; }
   float nextSpawnTime;
 
   MapGenerator map;
@@ -78,7 +78,7 @@ public class Spawner : MonoBehaviour {
       spawnTile = map.GetTileFromPosition(playerT.position);
     }
     Material tileMat = spawnTile.GetComponent<Renderer> ().material;
-    Color intialColour = Color.white;
+    Color intialColour = tileMat.color;
     Color flashColour = Color.red;
     float spawnTimer = 0;
 
@@ -89,10 +89,15 @@ public class Spawner : MonoBehaviour {
 
       yield return null;
     }
+    tileMat.color = Color.white;
 
     Enemy spawnedEnemy = Instantiate(enemy, spawnTile.position + Vector3.up, Quaternion.identity) as Enemy;
     spawnedEnemy.OnDeath += OnEnemyDeath;
-    spawnedEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.hitsToKillPlayer, currentWave.enemyHealth, currentWave.skinColour);
+    spawnedEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.hitsToKillPlayer, currentWave.enemyHealth, currentWave.skinColour, currentWave.deathEffectColour);
+
+    if(tileMat.color != Color.white){
+      tileMat.color = Color.white;
+    }
   }
 
   void OnPlayerDeath(){
@@ -137,5 +142,6 @@ public class Spawner : MonoBehaviour {
     public int hitsToKillPlayer;
     public float enemyHealth;
     public Color skinColour;
+    public Color deathEffectColour;
   }
 }

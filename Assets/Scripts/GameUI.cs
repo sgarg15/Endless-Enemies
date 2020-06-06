@@ -13,6 +13,7 @@ public class GameUI : MonoBehaviour {
   public Text newWaveTitle;
   public Text newWaveEnemyCount;
   public Text scoreUI;
+  public Text enemiesLeftUI;
   public Text GameOverScoreUI;
   public RectTransform healthBar;
 
@@ -32,6 +33,7 @@ public class GameUI : MonoBehaviour {
 
   void Update(){
     scoreUI.text = ScoreKeeper.score.ToString("D6");
+    enemiesLeftUI.text = spawner.enemiesRemainingAlive.ToString("D2");
     float healthPercent = 0;
     if(player != null){
       healthPercent = player.health / player.startingHealth;
@@ -77,6 +79,7 @@ public class GameUI : MonoBehaviour {
     StartCoroutine(Fade (Color.clear, new Color(0,0,0, 0.95f), 1));
     GameOverScoreUI.text = scoreUI.text;
     scoreUI.gameObject.SetActive(false);
+    enemiesLeftUI.gameObject.SetActive(false);
     healthBar.transform.parent.gameObject.SetActive(false);
     gameOverUI.SetActive(true);
   }
