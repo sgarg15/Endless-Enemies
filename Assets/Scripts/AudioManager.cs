@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour {
     PlayerPrefs.Save();
   }
 
-  public void PlayMusic(AudioClip clip, float fadeDuration = 1) {
+  public void PlayMusic(AudioClip clip, float fadeDuration = 0.5f) {
     activeMusicSourceIndex = 1 - activeMusicSourceIndex;
     musicSources[activeMusicSourceIndex].clip = clip;
     musicSources[activeMusicSourceIndex].Play ();
