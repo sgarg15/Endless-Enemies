@@ -62,9 +62,7 @@ public class AudioManager : MonoBehaviour {
 }
 
   void Update(){
-    Debug.Log("In UPDATE");
     if(playerT != null){
-      Debug.Log("In FIRST");
       audioListener.position = playerT.position;
     }
   }

@@ -14,14 +14,22 @@ public class GameUI : MonoBehaviour {
   public Text newWaveEnemyCount;
   public Text scoreUI;
   public Text enemiesLeftUI;
+  // public Text bulletsLeftUI;
   public Text GameOverScoreUI;
   public RectTransform healthBar;
 
+  Gun gun;
+  Menu menu;
   Spawner spawner;
   Player player;
 
+
+  float lastHurtTime;
+
   // Start is called before the first frame update
   void Start() {
+    gun = FindObjectOfType<Gun> ();
+    menu = FindObjectOfType<Menu> ();
     player = FindObjectOfType<Player> ();
     player.OnDeath += OnGameOver;
   }
@@ -32,8 +40,13 @@ public class GameUI : MonoBehaviour {
   }
 
   void Update(){
+    // Debug.Log("projectileRemainingInMag -  " + gun.projectileRemainingInMag);
+    // Debug.Log("shotsRemainingInBurst - " + gun.shotsRemainingInBurst);
+    //Debug.Log("projectilesPerMag - " + gun.projectilesPerMag);
+    //Debug.Log("burstCount - " + gun.burstCount);
     scoreUI.text = ScoreKeeper.score.ToString("D6");
     enemiesLeftUI.text = spawner.enemiesRemainingAlive.ToString("D2");
+    // bulletsLeftUI.text = gun.projectileRemainingInMag.ToString("D2");
     float healthPercent = 0;
     if(player != null){
       healthPercent = player.health / player.startingHealth;
@@ -80,6 +93,7 @@ public class GameUI : MonoBehaviour {
     GameOverScoreUI.text = scoreUI.text;
     scoreUI.gameObject.SetActive(false);
     enemiesLeftUI.gameObject.SetActive(false);
+    //bulletsLeftUI.gameObject.SetActive(false);
     healthBar.transform.parent.gameObject.SetActive(false);
     gameOverUI.SetActive(true);
   }

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : LivingEntity {
 
   public float moveSpeed = 5;
+  public float regainSpeed = 0.1f;
 
   public CrossHairs crossHairs;
 
@@ -14,6 +15,8 @@ public class Player : LivingEntity {
   PlayerControl controller;
   GunController gunController;
   AudioManager audioManager;
+
+  float interpolation = 0;
 
   protected override void Start() {
     base.Start ();
@@ -24,6 +27,7 @@ public class Player : LivingEntity {
     gunController = GetComponent<GunController> ();
     viewCamera = Camera.main;
     FindObjectOfType<Spawner> ().OnNewWave += OnNewWave;
+    StartCoroutine(HealthRegain());
   }
 
   void OnNewWave(int waveNumber){
@@ -66,6 +70,19 @@ public class Player : LivingEntity {
 
     if(transform.position.y < -10){
       TakeDamage(health);
+    }
+  }
+
+  IEnumerator HealthRegain(){
+    while (true){
+      if(health < (startingHealth * 0.85)){
+        interpolation += Time.deltaTime / regainSpeed;
+        health = Mathf.Lerp(health, startingHealth, interpolation);
+        //health += regainSpeed;
+        yield return new WaitForSeconds(2);
+      } else {
+        yield return null;
+      }
     }
   }
 
