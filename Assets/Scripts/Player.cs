@@ -90,4 +90,11 @@ public class Player : LivingEntity {
     AudioManager.instance.PlaySound("Player Death", transform.position);
     base.Die();
   }
-}
+
+  void OnTriggerEnter(Collider triggerCollider){
+    if(triggerCollider.tag == "HealthPack") {
+      Destroy(triggerCollider.gameObject);
+      health = startingHealth;
+    }
+  }
+  }
