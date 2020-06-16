@@ -8674,7 +8674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpObjects:
-  - {fileID: 6715168548785136163, guid: 62bb3978f630c1443947fd314c40fd2e, type: 3}
+  - {fileID: 8673092322656940713, guid: 62bb3978f630c1443947fd314c40fd2e, type: 3}
   minPickUpSpawnTime: 10
   maxPickUpSpawnTime: 20
 --- !u!4 &920271580
@@ -8804,6 +8804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 15
+  spawnPoint: {fileID: 440080280}
+  grenade: {fileID: 1769067129224839818, guid: 6ab99eb6d8a75b84d950c8a33818018e, type: 3}
   moveSpeed: 5
   regainSpeed: 15
   crossHairs: {fileID: 1563755966}

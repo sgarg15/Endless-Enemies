@@ -6,6 +6,11 @@ using UnityEngine;
 [RequireComponent (typeof (GunController))]
 public class Player : LivingEntity {
 
+  public Transform spawnPoint;
+  public GameObject grenade;
+
+  float range = 10f;
+
   public float moveSpeed = 5;
   public float regainSpeed = 0.1f;
 
@@ -71,6 +76,10 @@ public class Player : LivingEntity {
     if(transform.position.y < -10){
       TakeDamage(health);
     }
+
+    if(Input.GetKeyDown(KeyCode.Q)){
+      Launch();
+    }
   }
 
   IEnumerator HealthRegain(){
@@ -96,5 +105,10 @@ public class Player : LivingEntity {
       Destroy(triggerCollider.gameObject);
       health = startingHealth;
     }
+  }
+
+  private void Launch(){
+    GameObject grenadeInstance = Instantiate(grenade, spawnPoint.position, spawnPoint.rotation);
+    grenadeInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * range, ForceMode.Impulse);
   }
   }
