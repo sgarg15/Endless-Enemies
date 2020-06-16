@@ -2681,7 +2681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22451668, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 22451668, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4301,10 +4301,10 @@ MonoBehaviour:
     enemyCount: -1
     timeBetweenSpawns: 0.5
     moveSpeed: 3.7
-    hitsToKillPlayer: 2
+    hitsToKillPlayer: 15
     enemyHealth: 1
-    skinColour: {r: 1, g: 0.9680333, b: 0, a: 0}
-    deathEffectColour: {r: 0.735849, g: 0.71276355, b: 0, a: 0}
+    skinColour: {r: 0, g: 0, b: 0, a: 0}
+    deathEffectColour: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
   enemy: {fileID: 972190769502494926, guid: b97de42d67b3a3f47b8b768f4e34a195, type: 3}
 --- !u!4 &437596591
 Transform:
@@ -8675,6 +8675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpObjects:
   - {fileID: 8673092322656940713, guid: 62bb3978f630c1443947fd314c40fd2e, type: 3}
+  - {fileID: 6294477380210734259, guid: afaa11e3ec3fea0498c2e5edfc3fef4d, type: 3}
   minPickUpSpawnTime: 10
   maxPickUpSpawnTime: 20
 --- !u!4 &920271580
@@ -9175,7 +9176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992528201
 GameObject:
@@ -14718,7 +14719,7 @@ Transform:
   m_Children:
   - {fileID: 1421965561}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1563755966
 MonoBehaviour:
@@ -19522,7 +19523,7 @@ PrefabInstance:
     - target: {fileID: 1449279632747719281, guid: 599cc5c19edef1c45ad23c68b657c4f8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1449279632747719281, guid: 599cc5c19edef1c45ad23c68b657c4f8,
         type: 3}

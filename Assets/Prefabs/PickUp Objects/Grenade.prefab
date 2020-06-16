@@ -81,6 +81,9 @@ MonoBehaviour:
   delay: 3
   radius: 5
   force: 700
+  explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
+    type: 3}
+  explosionAudio: {fileID: 8300000, guid: db2f0160c1c6e3d48ab98daf1a4333a6, type: 3}
 --- !u!1 &4626409409558046579
 GameObject:
   m_ObjectHideFlags: 0

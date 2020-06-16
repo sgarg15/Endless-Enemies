@@ -22,6 +22,7 @@ public class Player : LivingEntity {
   AudioManager audioManager;
 
   float interpolation = 0;
+  int numOfGrenades = 0;
 
   protected override void Start() {
     base.Start ();
@@ -77,8 +78,11 @@ public class Player : LivingEntity {
       TakeDamage(health);
     }
 
-    if(Input.GetKeyDown(KeyCode.Q)){
-      Launch();
+    if(Input.GetMouseButtonDown(1)){
+      if(numOfGrenades != 0){
+        Launch();
+        numOfGrenades--;
+      }
     }
   }
 
@@ -104,6 +108,10 @@ public class Player : LivingEntity {
     if(triggerCollider.tag == "HealthPack") {
       Destroy(triggerCollider.gameObject);
       health = startingHealth;
+    }
+    if(triggerCollider.tag == "Grenade") {
+      Destroy(triggerCollider.gameObject);
+      numOfGrenades++;
     }
   }
 
