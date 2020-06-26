@@ -13,8 +13,10 @@ public class playerFollower : MonoBehaviour {
   LivingEntity _playerEntity;
 
   void Start(){
-    _playerEntity = FindObjectOfType<Player> ();
-    _playerEntity.OnDeath += PlayerDeath;
+    if(FindObjectOfType<Player> () != null){
+      _playerEntity = FindObjectOfType<Player> ();
+      _playerEntity.OnDeath += PlayerDeath;
+    }
   }
 
   void FixedUpdate() {

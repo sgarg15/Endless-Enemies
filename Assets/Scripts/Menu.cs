@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
 
+  [SerializeField]
+  private NetworkManagerLobby networkManager = null;
+
+  [Header("UI")]
+  [SerializeField]
+  private GameObject MainMenuPanel = null;
+
   public GameObject mainMenuHolder;
   public GameObject optionsMenuHolder;
 
@@ -86,5 +93,10 @@ public class Menu : MonoBehaviour {
     AudioManager.instance.SetVolume (value, AudioManager.AudioChannel.Sfx);
   }
 
+  public void HostLobby(){
+    networkManager.StartHost();
+
+    MainMenuPanel.SetActive(false);
+  }
 
 }

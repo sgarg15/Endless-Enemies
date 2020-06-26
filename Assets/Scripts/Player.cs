@@ -1,15 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 [RequireComponent (typeof (PlayerControl))]
 [RequireComponent (typeof (GunController))]
 public class Player : LivingEntity {
-
-  public Transform spawnPoint;
-  public GameObject grenade;
-
-  float range = 10f;
 
   public float moveSpeed = 5;
   public float regainSpeed = 0.1f;
@@ -22,7 +18,6 @@ public class Player : LivingEntity {
   AudioManager audioManager;
 
   float interpolation = 0;
-  int numOfGrenades = 0;
 
   protected override void Start() {
     base.Start ();
@@ -32,7 +27,6 @@ public class Player : LivingEntity {
     controller = GetComponent<PlayerControl> ();
     gunController = GetComponent<GunController> ();
     viewCamera = Camera.main;
-    FindObjectOfType<Spawner> ().OnNewWave += OnNewWave;
     StartCoroutine(HealthRegain());
   }
 
@@ -77,13 +71,6 @@ public class Player : LivingEntity {
     if(transform.position.y < -10){
       TakeDamage(health);
     }
-
-    if(Input.GetMouseButtonDown(1)){
-      if(numOfGrenades != 0){
-        Launch();
-        numOfGrenades--;
-      }
-    }
   }
 
   IEnumerator HealthRegain(){
@@ -103,20 +90,4 @@ public class Player : LivingEntity {
     AudioManager.instance.PlaySound("Player Death", transform.position);
     base.Die();
   }
-
-  void OnTriggerEnter(Collider triggerCollider){
-    if(triggerCollider.tag == "HealthPack") {
-      Destroy(triggerCollider.gameObject);
-      health = startingHealth;
-    }
-    if(triggerCollider.tag == "Grenade") {
-      Destroy(triggerCollider.gameObject);
-      numOfGrenades++;
-    }
-  }
-
-  private void Launch(){
-    GameObject grenadeInstance = Instantiate(grenade, spawnPoint.position, spawnPoint.rotation);
-    grenadeInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * range, ForceMode.Impulse);
-  }
-  }
+}

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
-  //test
 
   public enum AudioChannel {Master, Sfx, Music};
 
