@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: db0c8188c3c543245b5ed443ad1014b7,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -22385,9 +22386,6 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 1227415394482165433, guid: a940837ef455e1c419ddfb2c5c4f3b05,
     type: 3}
   mapFloor: {fileID: 154436343}
-  navMeshFloor: {fileID: 1532177702}
-  navMeshMaskPrefab: {fileID: 6052606555340885143, guid: ea93b95ca4e206241bba9d24a47b4616,
-    type: 3}
   maxMapSize: {x: 30, y: 20}
   outlinePercent: 0.1
   tileSize: 4.53
@@ -24811,7 +24809,7 @@ MonoBehaviour:
   runInBackground: 1
   startOnHeadless: 1
   showDebugMessages: 0
-  serverTickRate: 30
+  serverTickRate: 60
   offlineScene: 
   onlineScene: Assets/Scenes/Menu.unity
   transport: {fileID: 599812932}

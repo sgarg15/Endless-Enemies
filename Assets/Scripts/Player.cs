@@ -6,7 +6,8 @@ using Mirror;
 public class Player : NetworkBehaviour {
 
 public float moveSpeed = 5;
-public Rigidbody2D rigidbody3d;
+public Rigidbody rigidbody3d;
+bool enabled = false;
 
 void Update() {
   if (!isLocalPlayer){
@@ -16,6 +17,6 @@ void Update() {
   //Movement Input
   Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
   Vector3 moveVelocity = moveInput.normalized * moveSpeed;
-  rigidbody3d.velocity = moveVelocity * Time.fixedDeltaTime;
-  }
+  rigidbody3d.velocity = moveVelocity;
+   }
 }

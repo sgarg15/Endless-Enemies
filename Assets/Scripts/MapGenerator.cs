@@ -10,8 +10,6 @@ public class MapGenerator : MonoBehaviour {
   public Transform tilePrefab;
   public Transform obstaclePrefab;
   public Transform mapFloor;
-  public Transform navMeshFloor;
-  public Transform navMeshMaskPrefab;
   public Vector2 maxMapSize;
 
   [Range(0,1)]
@@ -94,24 +92,6 @@ public class MapGenerator : MonoBehaviour {
 
     shuffledOpenTileCoords = new Queue<Coord>(Utility.ShuffleArray (allOpenCoords.ToArray(), currentMap.seed));
 
-    //spawning navMesh Mask
-    Transform maskLeft = Instantiate(navMeshMaskPrefab, Vector3.left * (currentMap.mapSize.x + maxMapSize.x)/4f * tileSize, Quaternion.identity) as Transform;
-    maskLeft.parent = mapHolder;
-    maskLeft.localScale = new Vector3((maxMapSize.x - currentMap.mapSize.x) / 2f, 1, currentMap.mapSize.y) * tileSize;
-
-    Transform maskRight = Instantiate(navMeshMaskPrefab, Vector3.right * (currentMap.mapSize.x + maxMapSize.x)/4f * tileSize, Quaternion.identity) as Transform;
-    maskRight.parent = mapHolder;
-    maskRight.localScale = new Vector3((maxMapSize.x - currentMap.mapSize.x) / 2f, 1, currentMap.mapSize.y) * tileSize;
-
-    Transform maskTop = Instantiate(navMeshMaskPrefab, Vector3.forward * (currentMap.mapSize.y + maxMapSize.y)/4f * tileSize, Quaternion.identity) as Transform;
-    maskTop.parent = mapHolder;
-    maskTop.localScale = new Vector3(maxMapSize.x, 1, (maxMapSize.y - currentMap.mapSize.y) / 2f) * tileSize;
-
-    Transform maskBottom = Instantiate(navMeshMaskPrefab, Vector3.back * (currentMap.mapSize.y + maxMapSize.y)/4f * tileSize, Quaternion.identity) as Transform;
-    maskBottom.parent = mapHolder;
-    maskBottom.localScale = new Vector3(maxMapSize.x, 1, (maxMapSize.y - currentMap.mapSize.y) / 2f) * tileSize;
-
-    navMeshFloor.localScale = new Vector3(maxMapSize.x, maxMapSize.y) * tileSize;
     mapFloor.localScale = new Vector3(currentMap.mapSize.x * tileSize, currentMap.mapSize.y * tileSize);
   }
 
