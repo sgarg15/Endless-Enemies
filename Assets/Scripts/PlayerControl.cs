@@ -22,6 +22,8 @@ public class PlayerControl : NetworkBehaviour {
 
   public override void OnStartAuthority(){
     enabled = true;
+    
+    transform.GetChild(2).gameObject.SetActive(true);
 
     Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
     Controls.Player.Move.canceled += ctx => ResetMovement();
