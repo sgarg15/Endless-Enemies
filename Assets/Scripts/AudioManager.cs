@@ -43,8 +43,8 @@ public class AudioManager : MonoBehaviour {
       newSfx2Dsource.transform.parent = transform;
 
       audioListener = FindObjectOfType<AudioListener> ().transform;
-      if(FindObjectOfType<Player> () != null){
-        playerT = FindObjectOfType<Player> ().transform;
+      if(FindObjectOfType<PlayerControl> () != null){
+        playerT = FindObjectOfType<PlayerControl> ().transform;
       }
 
       masterVolumePercent = PlayerPrefs.GetFloat("master vol", 1);
@@ -55,8 +55,8 @@ public class AudioManager : MonoBehaviour {
 
   void OnLevelWasLoaded(int index) {
     if (playerT == null) {
-      if (FindObjectOfType<Player> () != null) {
-        playerT = FindObjectOfType<Player> ().transform;
+      if (FindObjectOfType<PlayerControl> () != null) {
+        playerT = FindObjectOfType<PlayerControl> ().transform;
       }
     }
 }
