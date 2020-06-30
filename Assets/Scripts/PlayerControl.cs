@@ -82,8 +82,8 @@ public class PlayerControl : NetworkBehaviour {
 
   [Client]
   private void Move(){
-    Vector3 right = controller.transform.right;
-    Vector3 forward = controller.transform.forward;
+    Vector3 right = new Vector3(1,0,0);
+    Vector3 forward = new Vector3(0,0,1);
     right.y = 0f;
     forward.y = 0f;
 

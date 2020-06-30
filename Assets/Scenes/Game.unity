@@ -11174,10 +11174,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1354034469}
   - component: {fileID: 1354034468}
+  - component: {fileID: 1354034470}
   - component: {fileID: 1354034467}
   - component: {fileID: 1354034466}
   - component: {fileID: 1354034471}
-  - component: {fileID: 1354034470}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: cam_TP
@@ -11349,7 +11349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: 842909241
+  sceneId: 3358843327
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
