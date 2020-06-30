@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerControl : NetworkBehaviour {
 
   //[SerializeField]
-  Camera viewCamera;
+  // Camera viewCamera;
 
   [SerializeField]
   private float movementSpeed = 5f;
@@ -26,9 +26,6 @@ public class PlayerControl : NetworkBehaviour {
   public override void OnStartAuthority(){
     enabled = true;
     
-    viewCamera = GameObject.FindGameObjectWithTag("cam_TP").GetComponent<Camera>();
-    viewCamera.enabled = true; //GetComponentInChildren<Camera>().transform;
-    
     Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
     Controls.Player.Move.canceled += ctx => ResetMovement();
   }
@@ -46,7 +43,6 @@ public class PlayerControl : NetworkBehaviour {
   [ClientCallback]
   private void Update() {
     Move();
-    Look();
   }
 
   [Client]
@@ -60,30 +56,9 @@ public class PlayerControl : NetworkBehaviour {
   }
 
   [Client]
-  private void Look(){
-    float height = 0.05f;
-    //Look Input
-    Ray ray = viewCamera.ScreenPointToRay (Input.mousePosition);
-    Plane groundPlane = new Plane(Vector3.up, Vector3.up * height);
-    float rayDistance;
-
-    if(groundPlane.Raycast(ray, out rayDistance)){
-      Vector3 pointOfIntersection = ray.GetPoint(rayDistance);
-      Debug.DrawLine(ray.origin, pointOfIntersection, Color.red);
-      LookAtPoint(pointOfIntersection, 1f);
-    }
-  }
-
-  [Client]
-  private void LookAtPoint(Vector3 lookPoint, float mouseLookSpeed){
-    Vector3 heightCorrectedPoint = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
-    transform.LookAt(heightCorrectedPoint);
-  }
-
-  [Client]
   private void Move(){
-    Vector3 right = new Vector3(1,0,0);
-    Vector3 forward = new Vector3(0,0,1);
+    Vector3 right = controller.transform.right;
+    Vector3 forward = controller.transform.forward;
     right.y = 0f;
     forward.y = 0f;
 
