@@ -7,6 +7,7 @@ using Mirror;
 
 public class playerFollower : NetworkBehaviour
 {
+    //test
 
     [SerializeField]
     Transform player;
