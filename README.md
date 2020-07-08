@@ -1,2 +1,2 @@
 # The_Shooter
-3rd Unity game, The Shooter Single Player
+3rd Unity game, The Shooter Dedicated Server
