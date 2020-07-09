@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apnas\\Desktop\\Unity Learning\\The_Shooter\\The Shooter Server\\The Shooter Server\\The Shooter Server.csproj",
-      "projectName": "The Shooter Server",
-      "projectPath": "C:\\Users\\apnas\\Desktop\\Unity Learning\\The_Shooter\\The Shooter Server\\The Shooter Server\\The Shooter Server.csproj",
+      "projectUniqueName": "C:\\Users\\apnas\\Desktop\\Unity Learning\\The_Shooter\\TheShooterServer\\TheShooterServer\\TheShooterServer.csproj",
+      "projectName": "TheShooterServer",
+      "projectPath": "C:\\Users\\apnas\\Desktop\\Unity Learning\\The_Shooter\\TheShooterServer\\TheShooterServer\\TheShooterServer.csproj",
       "packagesPath": "C:\\Users\\apnas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apnas\\Desktop\\Unity Learning\\The_Shooter\\The Shooter Server\\The Shooter Server\\obj\\",
+      "outputPath": "C:\\Users\\apnas\\Desktop\\Unity Learning\\The_Shooter\\TheShooterServer\\TheShooterServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
