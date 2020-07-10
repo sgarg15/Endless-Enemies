@@ -7,7 +7,7 @@ C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterSer
 C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.csprojAssemblyReference.cache
 C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.AssemblyInfoInputs.cache
 C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.AssemblyInfo.cs
-C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.csproj.CoreCompileInputs.cache
 C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.dll
 C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.pdb
 C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.genruntimeconfig.cache
+C:\Users\apnas\Desktop\Unity Learning\The_Shooter\TheShooterServer\TheShooterServer\obj\Debug\netcoreapp3.1\TheShooterServer.csproj.CoreCompileInputs.cache
