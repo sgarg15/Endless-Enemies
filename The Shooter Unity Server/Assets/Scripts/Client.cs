@@ -198,6 +198,7 @@ public class Client
 			{
 				if (_client.id != id)
 				{
+					//local player spawn
 					ServerSend.SpawnPlayer(id, _client.player);
 				}
 			}
@@ -207,6 +208,7 @@ public class Client
 		{
 			if (_client.player != null)
 			{
+				//player spawn
 				ServerSend.SpawnPlayer(_client.id, player);
 			}
 		}
@@ -216,8 +218,11 @@ public class Client
 	{
 		Debug.Log($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
 
-		UnityEngine.Object.Destroy(player.gameObject);
-		player = null;
+		ThreadManager.ExecuteOnMainThread(() =>
+		{
+			UnityEngine.Object.Destroy(player.gameObject);
+			player = null;
+		});
 
 		tcp.Disconnect();
 		udp.Disconnect();
