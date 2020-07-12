@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 		id = _id;
 		username = _username;
 
-		inputs = new bool[4];
+		inputs = new bool[5];
 	}
 
 	public void FixedUpdate()
@@ -60,7 +60,12 @@ public class Player : MonoBehaviour
         if (controller.isGrounded)
         {
 			yVelocity = 0f;
+            if (inputs[4])
+            {
+				yVelocity = jumpSpeed;
+            }
         }
+		yVelocity += gravity;
 
 		_moveDirection.y = yVelocity;
 		controller.Move(_moveDirection);
