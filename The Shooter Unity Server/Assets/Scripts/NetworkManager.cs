@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static MapGenerator;
 
+[RequireComponent(typeof(MapGenerator))]
 public class NetworkManager : MonoBehaviour
 {
-
     public static NetworkManager instance;
+
+    private MapGenerator map;
 
     public GameObject playerPrefab;
     private void Awake()
@@ -13,6 +16,7 @@ public class NetworkManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            map = Object.FindObjectOfType<MapGenerator>();
         }
         else if (instance != this)
         {
@@ -33,8 +37,10 @@ public class NetworkManager : MonoBehaviour
     {
         Server.Stop();
     }
+
     public Player InstantiatePlayer()
     {
-        return Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity).GetComponent<Player>();
+        Transform playerPosition = map.GetRandomOpenTile();
+        return Instantiate(playerPrefab, playerPosition.position, Quaternion.identity).GetComponent<Player>();
     }
 }
