@@ -7,6 +7,7 @@ using static MapGenerator;
 public class NetworkManager : MonoBehaviour
 {
     public static NetworkManager instance;
+    public int numberOfPlayersAlive = 0;
 
     private MapGenerator map;
 
@@ -41,6 +42,7 @@ public class NetworkManager : MonoBehaviour
     public Player InstantiatePlayer()
     {
         Transform playerPosition = map.GetRandomOpenTile();
+        numberOfPlayersAlive++;
         return Instantiate(playerPrefab, playerPosition.position, Quaternion.identity).GetComponent<Player>();
     }
 }

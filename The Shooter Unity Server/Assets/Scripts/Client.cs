@@ -192,13 +192,13 @@ public class Client
 	{
 		player = NetworkManager.instance.InstantiatePlayer();
 		player.Initialize(id, _playerName);
+
 		foreach (Client _client in Server.clients.Values)
 		{
 			if (_client.player != null)
 			{
 				if (_client.id != id)
 				{
-					//local player spawn
 					ServerSend.SpawnPlayer(id, _client.player);
 				}
 			}
@@ -208,7 +208,6 @@ public class Client
 		{
 			if (_client.player != null)
 			{
-				//player spawn
 				ServerSend.SpawnPlayer(_client.id, player);
 			}
 		}
@@ -226,5 +225,7 @@ public class Client
 
 		tcp.Disconnect();
 		udp.Disconnect();
+
+		ServerSend.PlayerDisconnected(id);
 	}
 }

@@ -11,14 +11,26 @@ public class CameraController : MonoBehaviour
     private float verticalRotation;
     private float horizontalRotation;
 
+    Camera topDownView;
+    public Camera playerCamera;
+
+    private void Awake()
+    {
+        topDownView = Camera.main;
+    }
+
     private void Start()
     {
+        topDownView.enabled = false;
         verticalRotation = transform.localEulerAngles.x;
         horizontalRotation = player.transform.eulerAngles.y;
+        ToggleCursorMode();
     }
+
 
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleCursorMode();
@@ -56,5 +68,11 @@ public class CameraController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    public void SwitchCamera()
+    {
+        topDownView.enabled = !topDownView.enabled;
+        playerCamera.enabled = !playerCamera.enabled;
     }
 }
