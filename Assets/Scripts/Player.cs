@@ -113,6 +113,12 @@ public class Player : LivingEntity {
       Destroy(triggerCollider.gameObject);
       numOfGrenades++;
     }
+    if(triggerCollider.tag == "Sniper")
+    {
+      Destroy(triggerCollider.gameObject);
+      gunController.EquipGun(5);
+      gunController.sniperEquipped = true;
+    }
   }
 
   private void Launch(){

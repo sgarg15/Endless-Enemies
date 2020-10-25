@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GunController))]
 public class Projectile : MonoBehaviour {
 
   public LayerMask collisionMask;
@@ -11,12 +12,15 @@ public class Projectile : MonoBehaviour {
   float lifeTime = 2;
   float skinWidth = 0.1f;
 
+  GunController gunController;
+
   void Start(){
     Destroy(gameObject, lifeTime);
 
     Collider[] initialCollision = Physics.OverlapSphere(transform.position, 0.1f, collisionMask);
-    if(initialCollision.Length > 0){
-      OnHitObject(initialCollision[0], transform.position);
+    gunController = GetComponent<GunController>();
+    if (initialCollision.Length > 0){
+        OnHitObject(initialCollision[0], transform.position);
     }
   }
 
@@ -34,6 +38,7 @@ public class Projectile : MonoBehaviour {
   void CheckCollisions(float moveDistance){
     Ray ray = new Ray(transform.position, transform.forward);
     RaycastHit hit;
+    Vector3 offset = new Vector3(0, 10, 0);
 
     if(Physics.Raycast(ray, out hit, moveDistance + skinWidth, collisionMask, QueryTriggerInteraction.Collide)){
       OnHitObject(hit.collider, hit.point);

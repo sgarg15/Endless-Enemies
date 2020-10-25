@@ -9431,6 +9431,7 @@ MonoBehaviour:
   pickUpObjects:
   - {fileID: 8673092322656940713, guid: 62bb3978f630c1443947fd314c40fd2e, type: 3}
   - {fileID: 6294477380210734259, guid: afaa11e3ec3fea0498c2e5edfc3fef4d, type: 3}
+  - {fileID: 5279525995050748431, guid: 7db412fd77d97f34db27fe0506f83578, type: 3}
   minPickUpSpawnTime: 5
   maxPickUpSpawnTime: 15
 --- !u!4 &920271580
@@ -9611,6 +9612,8 @@ MonoBehaviour:
   - {fileID: 2197417027848113539, guid: 5f54fbb8242aabd47980eba490adefe5, type: 3}
   - {fileID: 507271935476587176, guid: d73b9d501ceddde43b29ec753d28a2a5, type: 3}
   - {fileID: 8022389326240535157, guid: 2b30a9b187a7c7f45bc32f30653fe035, type: 3}
+  - {fileID: 4227457140573837010, guid: b25a296cb1b0fda4c9dcc8a15263b6ab, type: 3}
+  sniperEquipped: 0
 --- !u!1 &941254922
 GameObject:
   m_ObjectHideFlags: 0

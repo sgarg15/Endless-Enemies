@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HealthPack
   - Grenade
+  - Sniper
   layers:
   - Default
   - TransparentFX

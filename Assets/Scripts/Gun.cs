@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour {
 
   [Header("Main Gun Attributes")]
   public FireMode fireMode;
-  public enum FireMode {Auto, Burst, Single, Sniper};
+  public enum FireMode {Auto, Burst, Single};
 
   public Transform[] projectileSpawn;
   public Projectile projectile;
