@@ -10,6 +10,7 @@ public class Client : MonoBehaviour
     public static Client instance;
     public static int dataBufferSize = 4096;
 
+    //IP TO USE WHEN CONNECTING TO EXTERNAL DEVICES: 209.121.228.33
     public string ip = "192.168.1.77";
     public int port = 7777;
     public int myId = 0;
