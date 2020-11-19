@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class playerFollower : MonoBehaviour {
 
-  public Transform player;
+    public Transform player;
 
 
-  public float smoothSpeed = 10f;
-  public Vector3 offset;
-  bool playerIsDead;
-  LivingEntity _playerEntity;
+    public float smoothSpeed = 10f;
+    public Vector3 offset;
+    bool playerIsDead;
+    LivingEntity _playerEntity;
 
-  void Start(){
-    _playerEntity = FindObjectOfType<Player> ();
-    _playerEntity.OnDeath += PlayerDeath;
-  }
-
-  void FixedUpdate() {
-    if(!playerIsDead){
-      Vector3 desiredPosition = player.position + offset;
-      Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-      transform.position = smoothedPosition;
+    void Start() {
+        _playerEntity = FindObjectOfType<Player>();
+        _playerEntity.OnDeath += PlayerDeath;
     }
-  }
 
-  void PlayerDeath(){
-    playerIsDead = true;
-  }
+    void FixedUpdate() {
+        if (!playerIsDead) {
+            Vector3 desiredPosition = player.position + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            transform.position = smoothedPosition;
+        }
+    }
+
+    void PlayerDeath() {
+        playerIsDead = true;
+    }
 }

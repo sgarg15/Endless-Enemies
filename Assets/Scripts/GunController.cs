@@ -4,53 +4,52 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour {
 
-  public Transform weaponHold;
-  public Gun[] allGuns;
-  public bool sniperEquipped = false;
-  Gun equippedGun;
+    public Transform weaponHold;
+    public Gun[] allGuns;
+    Gun equippedGun;
 
-  void Start(){
-  }
-
-  public void EquipGun(Gun gunToEpic){
-    if (equippedGun != null){
-      Destroy(equippedGun.gameObject);
+    void Start() {
     }
-    equippedGun = Instantiate (gunToEpic, weaponHold.position, weaponHold.rotation) as Gun;
-    equippedGun.transform.parent = weaponHold;
-  }
 
-  public void EquipGun(int weaponIndex){
-    EquipGun(allGuns[weaponIndex]);
-  }
-
-  public void OnTriggerHold(){
-    if(equippedGun != null){
-      equippedGun.OnTriggerHold();
+    public void EquipGun(Gun gunToEpic) {
+        if (equippedGun != null) {
+            Destroy(equippedGun.gameObject);
+        }
+        equippedGun = Instantiate(gunToEpic, weaponHold.position, weaponHold.rotation) as Gun;
+        equippedGun.transform.parent = weaponHold;
     }
-  }
 
-  public void OnTriggerRelease(){
-    if(equippedGun != null){
-      equippedGun.OnTriggerRelease();
+    public void EquipGun(int weaponIndex) {
+        EquipGun(allGuns[weaponIndex]);
     }
-  }
 
-  public float GunHeight{
-    get{
-      return weaponHold.position.y;
+    public void OnTriggerHold() {
+        if (equippedGun != null) {
+            equippedGun.OnTriggerHold();
+        }
     }
-  }
 
-  public void Aim(Vector3 aimPoint){
-    if(equippedGun != null){
-      equippedGun.Aim(aimPoint);
+    public void OnTriggerRelease() {
+        if (equippedGun != null) {
+            equippedGun.OnTriggerRelease();
+        }
     }
-  }
 
-  public void Reload(){
-    if(equippedGun != null){
-      equippedGun.Reload();
+    public float GunHeight {
+        get {
+            return weaponHold.position.y;
+        }
     }
-  }
+
+    public void Aim(Vector3 aimPoint) {
+        if (equippedGun != null) {
+            equippedGun.Aim(aimPoint);
+        }
+    }
+
+    public void Reload() {
+        if (equippedGun != null) {
+            equippedGun.Reload();
+        }
+    }
 }
