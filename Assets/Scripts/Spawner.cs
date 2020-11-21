@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
     Transform playerT;
 
     Wave currentWave;
-    int currentWaveNumber;
+    public int currentWaveNumber;
 
     int enemiesRemainingToSpawn;
     public int enemiesRemainingAlive { get; private set; }
