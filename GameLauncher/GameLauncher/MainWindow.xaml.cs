@@ -112,7 +112,7 @@ namespace GameLauncher
                 }
 
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);
-                webClient.DownloadFileAsync(new Uri("https://www.dropbox.com/s/8nx96mrgn5niowa/The%20Shooter%20Build.zip?dl=1"), gameZip, _onlineVersion);
+                webClient.DownloadFileAsync(new Uri("https://www.dropbox.com/s/8nx96mrgn5niowa/Build.zip?dl=1"), gameZip, _onlineVersion);
             }
             catch (Exception ex)
             {

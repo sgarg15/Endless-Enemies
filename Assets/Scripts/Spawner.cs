@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour {
     LivingEntity playerEntity;
     Transform playerT;
 
-    Wave currentWave;
+    public Wave currentWave {get; private set;}
     public int currentWaveNumber;
 
     int enemiesRemainingToSpawn;
