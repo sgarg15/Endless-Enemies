@@ -1,4 +1,4 @@
-# The Shooter
+# Endless Enemies
 A top down shooter made using Unity in C#, where the player kills the enemies spawning around him to make it to the end to finally meet his demise.
 
 To view the scripts for this game, click [here](https://github.com/sgarg15/The_Shooter/tree/master/Assets/Scripts)
